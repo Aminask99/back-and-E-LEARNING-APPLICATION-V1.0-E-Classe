@@ -1,14 +1,19 @@
 
 <?php
-$table=[
- $array=[' '=>'vide','Name' =>'Amina','Email' => 'user@gmail.com', 'phone' => 868759094560,'Enroll_Number' => 234576887655643,'dete of admission'=> '08-Dec-2022' ],
- $array=[''=>'vide','Name' =>'Alex','Email' => 'user@gmail.com', 'phone' => 3456876887,'Enroll_Number' => 657876543245777,'dete of admission'=> '09-Dec-2022' ],
- $array=[''=>'vide','Name' =>'Wory','Email' => 'user@gmail.com', 'phone' => 6796544322,'Enroll_Number' => 678987678907897,'dete of admission'=> '15-Dec-2022' ],
- $array=[''=>'vide','Name' =>'Maher','Email' => 'user@gmail.com', 'phone' => 65467897860,'Enroll_Number' => 678987656789765,'dete of admission'=> '16-Dec-2022' ],
- $array=[''=>'vide','Name' =>'Zak','Email' => 'user@gmail.com', 'phone' => 7305477760,'Enroll_Number' => 3456789098765547,'dete of admission'=> '18-Dec-2022' ],
- $array=[''=>'vide','Name' =>'Sam','Email' => 'user@gmail.com', 'phone' => 7305477760,'Enroll_Number' => 45678998767875589,'dete of admission'=> '20-Dec-2022' ],
+// $table=[
+//  $array=[' '=>'vide','Name' =>'Amina','Email' => 'user@gmail.com', 'phone' => 868759094560,'Enroll_Number' => 234576887655643,'dete of admission'=> '08-Dec-2022' ],
+//  $array=[''=>'vide','Name' =>'Alex','Email' => 'user@gmail.com', 'phone' => 3456876887,'Enroll_Number' => 657876543245777,'dete of admission'=> '09-Dec-2022' ],
+//  $array=[''=>'vide','Name' =>'Wory','Email' => 'user@gmail.com', 'phone' => 6796544322,'Enroll_Number' => 678987678907897,'dete of admission'=> '15-Dec-2022' ],
+//  $array=[''=>'vide','Name' =>'Maher','Email' => 'user@gmail.com', 'phone' => 65467897860,'Enroll_Number' => 678987656789765,'dete of admission'=> '16-Dec-2022' ],
+//  $array=[''=>'vide','Name' =>'Zak','Email' => 'user@gmail.com', 'phone' => 7305477760,'Enroll_Number' => 3456789098765547,'dete of admission'=> '18-Dec-2022' ],
+//  $array=[''=>'vide','Name' =>'Sam','Email' => 'user@gmail.com', 'phone' => 7305477760,'Enroll_Number' => 45678998767875589,'dete of admission'=> '20-Dec-2022' ],
 
-   ];
+//    ];
+
+$table=file_get_contents('student.json');
+$table= json_decode($table,true);
+
+
   
 ?>
 <!DOCTYPE html>
@@ -108,8 +113,19 @@ $table=[
     <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PHP XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
        <?php
        //  xxxxxx th
-      foreach($array as $key => $val)
-       echo "<th >   $key </th>";
+      foreach($table as $key => $val){
+        
+      }
+      echo" <tr  class=' align-middle border-5 border-light text-secondary  5'>
+     
+      <th> </th>
+      <th>Name </th>
+      <th>Email </th>
+      <th>phone </th>
+      <th>Enroll_Number </th>
+      <th>dete of admission </th>
+    
+    </tr>";
       
        ?>
            </thead>
@@ -120,7 +136,7 @@ $table=[
        echo" <tr class='bg-white align-middle border-5 border-light' class='text-secondary'>
      
        <td class='py-3'><img src='STUDENT.png 'width='70px ' > </td>
-       <td class='py-3'> {$array['Name']}</td>
+       <td class='py-3'> {$array['name']}</td>
        <td class='py-3'>{$array['Email']}</td>
        <td class='py-3'>{$array['phone']}</td>
        <td class='py-3'>{$array['Enroll_Number']}</td>
