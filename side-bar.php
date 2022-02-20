@@ -5,10 +5,10 @@
 
           <div class="d-inline-flex flex-column  justify-content-center row">
 
-            <img class="logoo rounded-circle  d-none d-sm-block mt-4" src="youcode.png " alt="logo">
+            <img class="logoo rounded-circle  d-none d-sm-block mt-4" src="InShot_20210224_213135139.jpg " alt="logo">
 
             <div class="paragraph ">
-              <p class="fs-6 fw-bold mb-1 text-center text-dark   d-none d-sm-block ">Admin name</p>
+              <p class="fs-6 fw-bold mb-1 text-center text-dark   d-none d-sm-block "><?php echo $_SESSION["username"]; ?></p>
               <p class="fs-5 f text-center text-info  d-none d-sm-block">Admin</p>
             </div>
 
@@ -21,7 +21,7 @@
               </a>
             </li>
             <li class="nav-item   ">
-              <a href="#" class="nav-link align-middle px-0 ">
+              <a href="courss.php" class="nav-link align-middle px-0 ">
                 <i class="far fa-bookmark text-dark"></i><span class="ms-1 d-none d-sm-inline text-dark ">Course</span>
               </a>
             </li>
@@ -52,7 +52,7 @@
           </ul>
           <!--********************************************** LOGOUT **********************************************-->
           <div class="Logout">
-            <a href="Sign_in.php" class="nav-link align-middle px-0 ">
+            <a href="logout.php" class="nav-link align-middle px-0 ">
               <span class="ms-1 d-none d-sm-inline text-dark fs-5 mp-5 ">Logout </span> <i
                 class="fas fa-sign-out-alt text-dark"></i>
             </a>

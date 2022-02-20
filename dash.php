@@ -1,3 +1,31 @@
+<?php
+  session_start();
+
+    if(!isset($_SESSION["active"]))
+    {
+      header("location: index.php");
+    }
+
+
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "e_classe_db";
+  // Create connection
+  $connect =mysqli_connect($servername, $username, $password,$dbname);
+  $students=$connect->query("SELECT COUNT(id) As NumberOfStudent FROM listt_student");
+  $student= $students->fetch_array() ;
+  $student= $student[0];
+
+  $coursse=$connect->query("SELECT COUNT(id) As NumberOfCourses FROM courss");
+  $courss= $coursse->fetch_array() ;
+  $courss= $courss[0];
+
+  $payments=$connect->query("SELECT SUM(Amount_Paid) FROM payment");
+  $payment= $payments->fetch_array() ;
+  $payment= $payment[0];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +49,8 @@
     }
 
     .side-bar {
-      height: 700px;
+      height: 800px;
+   
     }
 
     .List_ :hover {
@@ -31,6 +60,8 @@
 
     .side-bar {
       background-color: #fff;
+      height: 1000px;
+      width:200px;
 
     }
 
@@ -86,8 +117,8 @@
     }
 
     .Logout {
-      transform: translateY(30Px);
-      margin-left: 10px;
+      transform: translateY(-40Px);
+      margin-left: 26px;
     }
 
 
@@ -101,6 +132,7 @@
 
     .side-bar {
       background-color: #fff;
+      
     }
 
     @media screen and (min-width: 984px) {

@@ -1,25 +1,25 @@
 
-<?php
 
-  session_start();
+ <?php
+
+ session_start();
 
 
-  if(!isset($_SESSION["active"]))
+ if(!isset($_SESSION["active"]))
     {
       header("location: index.php");
     }
 
-$listt_student=[
-//  $array=[' '=>'vide','Name' =>'Amina','Email' => 'user@gmail.com', 'phone' => 868759094560,'nroll_Number' => 234576887655643,'DateOfAdmission'=> '08-Dec-2022'],
-//  $array=[''=>'vide','Name' =>'Alex','Email' => 'user@gmail.com', 'phone' => 3456876887,'nroll_Number' => 657876543245777,'DateOfAdmission'=> '09-Dec-2022' ],
-//  $array=[''=>'vide','Name' =>'Wory','Email' => 'user@gmail.com', 'phone' => 6796544322,'nroll_Number' => 678987678907897,'DateOfAdmission'=> '15-Dec-2022' ],
- 
+ $courss=[
+//  $array=['Title'=> 'php','Description_'=>'amina','Price'=>123],
+//  $array=['Title'=> 'php','Description_'=>'amina','Price'=>123],
+//  $array=['Title'=> 'php','Description_'=>'amina','Price'=>123],
 
-   ];
-  
+   ]; 
 ?>
-<?php
-require'cnx.php';
+
+   <?php
+require 'cnx.php';
 ?>
 
 <!DOCTYPE html>
@@ -45,27 +45,23 @@ require'cnx.php';
     }
 
     .List_ :hover {
-      background-color: #00C1FE;
-  
+      background-color: #00C1FE
     }
 
     .side-bar {
       background-color: #fff;
       height: 800px;
       width:200px;
-     
     }
 
     .image {
       width: 70px;
     }
     .Logout{
-        transform: translateY(88Px);
+      transform: translateY(88Px);
       margin-left: 26px;
     }
-    .logoo{
-      width: 140px;
-    }
+    
     @media screen and (min-width: 576px) {
       .side-bar {
 
@@ -103,33 +99,13 @@ require'cnx.php';
 
         <?php include'navbar.php';   ?>
         <div
-         class=" d-flex main-container  flex-sm-row  flex-column  container bg-light  justify-content-between py-3">
+          class=" d-flex main-container  flex-sm-row  flex-column  container bg-light  justify-content-between py-3">
           <div>
-            <p class="fw-bold "> Student List </p>
+            <p class="fw-bold ">Courss </p>
           </div>
           <div>
             <i class="far fa-sort text-info me-3 h5 "></i>
-            <!-- Button trigger modal -->
-            <a href="formStudent.php"> <button type="button" class="btn btn-info text-light">ADD Student</button></a>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+            <a href="formCours.php"> <button type="button" class="btn btn-info   text-light">ADD NEW COURSS</button></a>
           </div>
         
         </div>
@@ -145,52 +121,45 @@ require'cnx.php';
     <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PHP XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
        <?php
        //  xxxxxx th
-      foreach($listt_student as $key => $val){
+      foreach($courss as $key => $val){
         
       }
       echo" <tr  class='align-middle border-5 border-light text-secondary 5'>
      
-     
-   
-      <th>Name </th>
-      <th>Email </th>
-      <th>phone </th>
-      <th>nroll_Number </th>
-      <th>DateOfAdmission </th>
-   
       
-
-    
+      <th> Title</th>
+      <th>Description_</th>
+      <th>Price </th>
+      
     </tr>";
       
        ?>
            </thead>
           <!-- xxxx td -->
           <?php
-  $req="SELECT * FROM listt_student ";
+  $req="SELECT * FROM courss  ";
     $quiry = mysqli_query($connect, $req); 
         while( $a=mysqli_fetch_assoc( $quiry)){
-          $id=$a['id'];    
+          $id=$a['id'];   
+        
+      
        echo" <tr class='bg-white align-middle border-5 border-light' class='text-secondary'>
      
-      
-       <td class='py-3'> ". $a['Name'] . "</td>
-       <td class='py-3'>{$a['Email']}</td>
-       <td class='py-3'>{$a['phone']}</td>
-       <td class='py-3'>{$a['Enroll_Number']}</td>
-       <td class='py-3'>{$a['DateOfAdmission']}</td>" ; ?>
+       
+       <td class='py-3'> ". $a['Title'] . "</td>
+       <td class='py-3'>{$a['Description_']}</td>
+       <td class='py-3'>{$a['Price']}</td>" ; ?>
        <td class="py-3">
-       <a href="update_Student.php?id=<?php echo $a['id']; ?>" type="button" class="btn btn-sm">
+       <a href="update_cours.php?id=<?php echo $a['id']; ?>" type="button" class="btn btn-sm">
          <i class="fal fa-pen pe-2 text-info"></i>
        </a>
        </td>
        <td>
-       <a href='delete.php?id=<?php echo $a['id']; ?>' type='button' class='btn  btn-sm '>
+       <a href='delet-cours.php?id=<?php echo $a['id']; ?>' type='button' class='btn  btn-sm '>
          <i class='fal fa-trash text-info'></i>
        <a/>
      </td>
      </tr>
-        
      <?php
     
     }
